@@ -23,20 +23,22 @@ export default function Signup() {
     localStorage.setItem('users', JSON.stringify(existing))
     localStorage.setItem('loggedInUser', JSON.stringify(newUser))
     if (form.role === 'student') navigate('/student/dashboard')
-    else if (form.role === 'teacher') navigate('/teacher/dashboard')
+    else if (form.role === 'organizer') navigate('/organizer/dashboard')
+    else if (form.role === 'admin') navigate('/admin/dashboard')
     else navigate('/')
   }
 
   const roles = [
-    { value: 'student', icon: '?', label: 'Student', desc: 'Browse events & track academics' },
-    { value: 'teacher', icon: '?', label: 'Teacher', desc: 'Manage courses & students' },
+    { value: 'student', icon: '?', label: 'Student', desc: 'Browse & register for events' },
+    { value: 'organizer', icon: '?', label: 'Organizer', desc: 'Create & manage events' },
+    { value: 'admin', icon: '?', label: 'Admin', desc: 'Full system control' },
   ]
 
   return (
     <div style={{ fontFamily: 'Space Grotesk, Inter, sans-serif', minHeight: '100vh', backgroundColor: '#000', display: 'flex', flexDirection: 'column' }}>
       <nav className='navbar navbar--scrolled' style={{ position: 'relative' }}>
         <div className='navbar__inner'>
-          <Link to='/' className='navbar__logo' style={{ textDecoration: 'none' }}>
+          <Link to='/' style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none' }}>
             <div className='navbar__logo-box'><span className='navbar__logo-letters'>EM</span></div>
             <span className='navbar__logo-name'>EventManage</span>
           </Link>
@@ -53,13 +55,13 @@ export default function Signup() {
           <div style={{ position: 'relative', zIndex: 1 }}>
             <p className='section-eyebrow' style={{ marginBottom: '1rem' }}>JOIN TODAY</p>
             <h1 style={{ fontFamily: 'Space Grotesk', fontWeight: 800, fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: '#fff', lineHeight: 1.1, marginBottom: '1.5rem' }}>Your University.<br />Your Events.</h1>
-            <p style={{ color: '#555', fontSize: '15px', lineHeight: 1.8, maxWidth: '380px', fontFamily: 'Inter', marginBottom: '2.5rem' }}>Join thousands of students and teachers already using the platform to stay connected and shape university culture.</p>
-            {roles.map(role => (
-              <div key={role.value} style={{ display: 'flex', alignItems: 'center', gap: '14px', padding: '14px 18px', border: '1px solid #1a1a1a', backgroundColor: '#0a0a0a', marginBottom: '10px' }}>
-                <span style={{ color: '#fff', fontSize: '10px' }}>{role.icon}</span>
+            <p style={{ color: '#555', fontSize: '15px', lineHeight: 1.8, maxWidth: '380px', fontFamily: 'Inter', marginBottom: '2.5rem' }}>Join thousands of students already using the platform to stay connected, participate in events, and shape university culture.</p>
+            {roles.map(r => (
+              <div key={r.value} style={{ display: 'flex', alignItems: 'center', gap: '14px', padding: '14px 18px', border: '1px solid #1a1a1a', backgroundColor: '#0a0a0a', marginBottom: '10px' }}>
+                <span style={{ color: '#fff', fontSize: '10px' }}>{r.icon}</span>
                 <div>
-                  <div style={{ color: '#fff', fontSize: '13px', fontWeight: 700, fontFamily: 'Space Grotesk' }}>{role.label}</div>
-                  <div style={{ color: '#555', fontSize: '12px', marginTop: '2px', fontFamily: 'Inter' }}>{role.desc}</div>
+                  <div style={{ color: '#fff', fontSize: '13px', fontWeight: 700, fontFamily: 'Space Grotesk' }}>{r.label}</div>
+                  <div style={{ color: '#555', fontSize: '12px', marginTop: '2px', fontFamily: 'Inter' }}>{r.desc}</div>
                 </div>
               </div>
             ))}
@@ -71,9 +73,7 @@ export default function Signup() {
             <p style={{ fontSize: '10px', letterSpacing: '2px', textTransform: 'uppercase', color: '#999', marginBottom: '8px', fontWeight: 700, fontFamily: 'Space Grotesk' }}>GET STARTED</p>
             <h2 style={{ fontSize: '1.75rem', fontWeight: 800, color: '#000', marginBottom: '0.4rem', fontFamily: 'Space Grotesk' }}>Create Account</h2>
             <p style={{ fontSize: '13px', color: '#888', marginBottom: '2rem', fontFamily: 'Inter' }}>Already have an account? <Link to='/login' style={{ color: '#000', fontWeight: 700, textDecoration: 'none' }}>Sign in ?</Link></p>
-
             {error && <div style={{ backgroundColor: '#fff0f0', border: '1px solid #ffcccc', color: '#cc0000', padding: '10px 14px', fontSize: '12px', marginBottom: '1.2rem', fontFamily: 'Inter' }}>{error}</div>}
-
             <form onSubmit={handleSubmit}>
               <div style={{ marginBottom: '1.1rem' }}>
                 <label style={{ display: 'block', fontSize: '11px', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase', color: '#333', marginBottom: '6px', fontFamily: 'Space Grotesk' }}>Full Name</label>
@@ -85,10 +85,10 @@ export default function Signup() {
               </div>
               <div style={{ marginBottom: '1.1rem' }}>
                 <label style={{ display: 'block', fontSize: '11px', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase', color: '#333', marginBottom: '8px', fontFamily: 'Space Grotesk' }}>I am a...</label>
-                <div style={{ display: 'flex', gap: '10px' }}>
-                  {roles.map(role => (
-                    <button key={role.value} type='button' onClick={() => setForm({ ...form, role: role.value })} style={{ flex: 1, padding: '12px 8px', border: form.role === role.value ? '1px solid #000' : '1px solid #ddd', backgroundColor: form.role === role.value ? '#000' : '#fafafa', color: form.role === role.value ? '#fff' : '#888', cursor: 'pointer', fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', fontFamily: 'Space Grotesk', letterSpacing: '0.5px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px' }}>
-                      <span style={{ fontSize: '8px' }}>{role.icon}</span>{role.label}
+                <div style={{ display: 'flex', gap: '8px' }}>
+                  {roles.map(r => (
+                    <button key={r.value} type='button' onClick={() => setForm({ ...form, role: r.value })} style={{ flex: 1, padding: '12px 8px', border: form.role === r.value ? '1px solid #000' : '1px solid #ddd', backgroundColor: form.role === r.value ? '#000' : '#fafafa', color: form.role === r.value ? '#fff' : '#888', cursor: 'pointer', fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', fontFamily: 'Space Grotesk', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px' }}>
+                      <span style={{ fontSize: '8px' }}>{r.icon}</span>{r.label}
                     </button>
                   ))}
                 </div>
