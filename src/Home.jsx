@@ -8,6 +8,7 @@ export default function Home() {
   const ctaRef = useRef(null);
   const [ctaVisible, setCtaVisible] = useState(false);
 
+  const date = new Date();
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', onScroll);
@@ -30,7 +31,7 @@ export default function Home() {
             <div className='navbar__logo-box'>
               <span className='navbar__logo-letters'>EM</span>
             </div>
-            <span className='navbar__logo-name'>EventManage</span>
+            <span className='navbar__logo-name'>EventManager</span>
           </div>
           <div className='navbar__links'>
             <a href='#how-it-works' className='navbar__link'>How It Works</a>
@@ -185,7 +186,7 @@ export default function Home() {
             <div>
               <div className='footer__brand-logo'>
                 <div className='navbar__logo-box'><span className='navbar__logo-letters'>EM</span></div>
-                <span className='navbar__logo-name'>EventManage</span>
+                <span className='navbar__logo-name'>EventManager</span>
               </div>
               <p className='footer__brand-desc'>The all-in-one platform for university event discovery and management.</p>
             </div>
@@ -214,7 +215,7 @@ export default function Home() {
             </div>
           </div>
           <div className='footer__bottom'>
-            <p>© 2025 University Event Management System</p>
+            <p>© {date.getFullYear()} University Event Management System</p>
             <p>Built for students, by students.</p>
           </div>
         </div>
