@@ -46,7 +46,7 @@ export default function AdminDashboard() {
         <div style={{ padding: '1.5rem', borderBottom: '1px solid #1a1a1a' }}>
           <Link to='/' style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none' }}>
             <div className='navbar__logo-box'><span className='navbar__logo-letters'>EM</span></div>
-            <span className='navbar__logo-name' style={{ fontSize: '14px' }}>EventManage</span>
+            <span className='navbar__logo-name' style={{ fontSize: '14px' }}>EventManager</span>
           </Link>
         </div>
         <div style={{ padding: '1.5rem 1rem', borderBottom: '1px solid #1a1a1a' }}>
@@ -146,7 +146,7 @@ export default function AdminDashboard() {
                           <p style={{ color: '#fff', fontFamily: 'Space Grotesk', fontWeight: 700, fontSize: '15px', margin: 0 }}>{ev.title}</p>
                           <span style={{ color: '#888', fontSize: '10px', fontFamily: 'Space Grotesk', border: '1px solid #222', padding: '2px 8px' }}>{ev.category}</span>
                         </div>
-                        <p style={{ color: '#555', fontSize: '12px', fontFamily: 'Inter', margin: '0 0 4px' }}>?? {ev.date} · ?? {ev.venue} · ?? {ev.organizer}</p>
+                        <p style={{ color: '#555', fontSize: '12px', fontFamily: 'Inter', margin: '0 0 4px' }}>?? {ev.date} ï¿½ ?? {ev.venue} ï¿½ ?? {ev.organizer}</p>
                         <p style={{ color: '#444', fontSize: '12px', fontFamily: 'Space Grotesk', margin: 0 }}>?? {regs.length} registrations</p>
                       </div>
                       <button onClick={() => deleteEvent(ev.id)} style={{ padding: '7px 14px', backgroundColor: 'transparent', border: '1px solid #ef4444', color: '#ef4444', cursor: 'pointer', fontSize: '11px', fontWeight: 700, fontFamily: 'Space Grotesk', whiteSpace: 'nowrap' }}>DELETE</button>
