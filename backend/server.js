@@ -1,11 +1,16 @@
 const express = require('express');
+const cors = require('cors');
+require('./config/database');
+const authRoutes = require('./routes/authRoutes');
 const app = express();
-const port = 5000;
+const port = 3000;
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
+
+app.use(cors());
+app.use(express.json());
+
+app.use('/api', authRoutes );
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+    console.log(`Backend is up and running on http://localhost:${port}`);
 });
