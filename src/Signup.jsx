@@ -10,30 +10,56 @@ export default function Signup() {
 
   const handleChange = (field) => (e) => setForm({ ...form, [field]: e.target.value })
 
-  const handleSubmit = (e) => {
+  const  handleSubmit = async (e) => {
     e.preventDefault()
     setError('')
     if (!form.role) { setError('Please select your role.'); return }
     if (form.password !== form.confirmPassword) { setError('Passwords do not match.'); return }
     if (form.password.length < 6) { setError('Password must be at least 6 characters.'); return }
-    const existing = JSON.parse(localStorage.getItem('users') || '[]')
-    if (existing.find(u => u.email === form.email)) { setError('Email already registered.'); return }
-    const newUser = { fullName: form.fullName, email: form.email, password: form.password, role: form.role, joinedAt: new Date().toISOString() }
-    existing.push(newUser)
-    localStorage.setItem('users', JSON.stringify(existing))
-    localStorage.setItem('loggedInUser', JSON.stringify(newUser))
-    if (form.role === 'student') navigate('/student/dashboard')
-    else if (form.role === 'organizer') navigate('/organizer/dashboard')
-    else if (form.role === 'admin') navigate('/admin/dashboard')
-    else if (form.role === 'teacher') navigate('/teacher/dashboard')
-    else navigate('/')
+    
+
+    try {
+      const response = await fetch("http://localhost:3000/api/signup",{
+        method:'Post',
+        headers:{
+          'Content-type' : 'application/json',
+        },
+        body: JSON.stringify({
+          fullName:form.fullName,
+          email:form.email,
+          role:form.role,
+          password:form.password
+         
+        }),
+      })
+
+      const data = await response.json();
+
+      if(!response.ok){
+        throw new Error(data.message || 'Something Went Wrong')
+      }
+
+      localStorage.setItem('loggedInUser', JSON.stringify(data.user))
+
+      const validRoles = ['student', 'organizer', 'admin', 'teacher']
+      if (validRoles.includes(form.role)) {
+         navigate('/login')
+      } 
+      else
+      { 
+        navigate('/')
+      }
+    }
+    catch(err){
+      setError(err.message||'Server Error During Registration');
+    }
   }
 
   const roles = [
     { value: 'student', icon: '?', label: 'Student', desc: 'Browse & register for events' },
     { value: 'organizer', icon: '?', label: 'Organizer', desc: 'Create & manage events' },
     { value: 'admin', icon: '?', label: 'Admin', desc: 'Full system control' },
-    { value: 'faculty', icon:'?', label: 'Faculty', desc:'Faculty will approve the Events'}
+    { value: 'teacher', icon:'?', label: 'Faculty', desc:'Faculty will approve the Events'}
   ]
 
   return (
