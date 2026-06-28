@@ -25,6 +25,7 @@ export default function Signup() {
     if (form.role === 'student') navigate('/student/dashboard')
     else if (form.role === 'organizer') navigate('/organizer/dashboard')
     else if (form.role === 'admin') navigate('/admin/dashboard')
+    else if (form.role === 'teacher') navigate('/teacher/dashboard')
     else navigate('/')
   }
 
@@ -32,6 +33,7 @@ export default function Signup() {
     { value: 'student', icon: '?', label: 'Student', desc: 'Browse & register for events' },
     { value: 'organizer', icon: '?', label: 'Organizer', desc: 'Create & manage events' },
     { value: 'admin', icon: '?', label: 'Admin', desc: 'Full system control' },
+    { value: 'faculty', icon:'?', label: 'Faculty', desc:'Faculty will approve the Events'}
   ]
 
   return (
