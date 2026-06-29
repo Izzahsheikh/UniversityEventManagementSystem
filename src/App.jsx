@@ -5,6 +5,7 @@ import Signup from './Signup'
 import StudentDashboard from './pages/StudentDashboard'
 import OrganizerDashboard from './pages/OrganizerDashboard'
 import AdminDashboard from './pages/AdminDashboard'
+import TeacherDashboard from './pages/TeacherDashboard'
 
 function ProtectedRoute({ children, allowedRole }) {
   const user = JSON.parse(localStorage.getItem('loggedInUser') || 'null')
@@ -27,6 +28,9 @@ function App() {
       } />
       <Route path='/admin/dashboard' element={
         <ProtectedRoute allowedRole='admin'><AdminDashboard /></ProtectedRoute>
+      } />
+       <Route path='/teacher/dashboard' element={
+        <ProtectedRoute allowedRole='teacher'><TeacherDashboard /></ProtectedRoute>
       } />
     </Routes>
   )

@@ -19,6 +19,7 @@ export default function Login() {
     if (user.role === 'student') navigate('/student/dashboard')
     else if (user.role === 'organizer') navigate('/organizer/dashboard')
     else if (user.role === 'admin') navigate('/admin/dashboard')
+    else if (user.role === 'teacher') navigate('/teacher/dashboard')
     else navigate('/')
   }
 
@@ -70,7 +71,11 @@ export default function Login() {
               <div style={{ marginBottom: '1.8rem' }}>
                 <label style={{ display: 'block', fontSize: '11px', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase', color: '#333', marginBottom: '6px', fontFamily: 'Space Grotesk' }}>Password</label>
                 <div style={{ position: 'relative' }}>
+<<<<<<< HEAD
+                  <input type={showPassword ? 'text' : 'password'} value={password} onChange={e => setPassword(e.target.value)} placeholder='��������' required style={{ width: '100%', padding: '11px 50px 11px 14px', border: '1px solid #ddd', fontSize: '13px', outline: 'none', boxSizing: 'border-box', fontFamily: 'Inter', backgroundColor: '#fafafa', color: '#000' }} onFocus={e => e.target.style.borderColor='#000'} onBlur={e => e.target.style.borderColor='#ddd'} />
+=======
                   <input type={showPassword ? 'text' : 'password'} value={password} onChange={e => setPassword(e.target.value)} placeholder='••••••••' required style={{ width: '100%', padding: '11px 50px 11px 14px', border: '1px solid #ddd', fontSize: '13px', outline: 'none', boxSizing: 'border-box', fontFamily: 'Inter', backgroundColor: '#fafafa', color: '#000' }} onFocus={e => e.target.style.borderColor='#000'} onBlur={e => e.target.style.borderColor='#ddd'} />
+>>>>>>> main
                   <button type='button' onClick={() => setShowPassword(!showPassword)} style={{ position: 'absolute', right: '12px', top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', cursor: 'pointer', color: '#999', fontSize: '11px', fontFamily: 'Space Grotesk', fontWeight: 700 }}>{showPassword ? 'HIDE' : 'SHOW'}</button>
                 </div>
               </div>
