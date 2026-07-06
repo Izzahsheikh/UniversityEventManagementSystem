@@ -1,9 +1,10 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
-import Login from './pages/Login'
-import Signup from './pages/Signup'
-import StudentDashboard from './pages/StudentDashboard'
-import OrganizerDashboard from './pages/OrganizerDashboard'
-import AdminDashboard from './pages/AdminDashboard'
+import Login from './Login.jsx'
+import Signup from './Signup.jsx'
+import StudentDashboard from './pages/StudentDashboard.jsx'
+import OrganizerDashboard from './pages/OrganizerDashboard.jsx'
+import AdminDashboard from './pages/AdminDashboard.jsx'
+import TeacherDashboard from './pages/TeacherDashboard.jsx'
 import './App.css'
 
 const ProtectedRoute = ({ children, role }) => {

@@ -15,10 +15,10 @@ const handle = async (res) => {
 
 // ── AUTH ──
 export const apiSignup = (body) =>
-  fetch(`${BASE}/auth/signup`, { method: 'POST', headers: headers(), body: JSON.stringify(body) }).then(handle)
+  fetch(`${BASE}/signup`, { method: 'POST', headers: headers(), body: JSON.stringify(body) }).then(handle)
 
 export const apiLogin = (body) =>
-  fetch(`${BASE}/auth/login`, { method: 'POST', headers: headers(), body: JSON.stringify(body) }).then(handle)
+  fetch(`${BASE}/login`, { method: 'POST', headers: headers(), body: JSON.stringify(body) }).then(handle)
 
 // ── EVENTS ──
 export const apiGetEvents = () =>
@@ -35,12 +35,6 @@ export const apiUpdateEvent = (id, body) =>
 
 export const apiDeleteEvent = (id) =>
   fetch(`${BASE}/events/${id}`, { method: 'DELETE', headers: headers() }).then(handle)
-
-export const apiApproveEvent = (id) =>
-  fetch(`${BASE}/events/${id}/approve`, { method: 'PATCH', headers: headers() }).then(handle)
-
-export const apiRejectEvent = (id) =>
-  fetch(`${BASE}/events/${id}/reject`, { method: 'PATCH', headers: headers() }).then(handle)
 
 // ── REGISTRATIONS ──
 export const apiRegister = (eventId) =>
@@ -77,3 +71,12 @@ export const apiGetStats = () =>
 
 export const apiUpdateProfile = (body) =>
   fetch(`${BASE}/auth/profile`, { method: 'PUT', headers: headers(), body: JSON.stringify(body) }).then(handle)
+
+export const apiGetPendingEvents = () =>
+  fetch(`${BASE}/events/pending`, { headers: headers() }).then(handle)
+
+export const apiApproveEvent = (id) =>
+  fetch(`${BASE}/events/${id}/approve`, { method: 'PATCH', headers: headers() }).then(handle)
+
+export const apiRejectEvent = (id) =>
+  fetch(`${BASE}/events/${id}/reject`, { method: 'PATCH', headers: headers() }).then(handle)
