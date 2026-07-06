@@ -80,3 +80,10 @@ export const apiApproveEvent = (id) =>
 
 export const apiRejectEvent = (id) =>
   fetch(`${BASE}/events/${id}/reject`, { method: 'PATCH', headers: headers() }).then(handle)
+
+export const apiSendChatMessage = (message) =>
+  fetch(`${BASE}/chat`, {
+    method: 'POST',
+    headers: headers(),
+    body: JSON.stringify({ message }),
+  }).then(handle)

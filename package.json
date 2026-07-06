@@ -8,9 +8,11 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "backend":"npm run dev --prefix backend"
+    "backend": "npm run dev --prefix backend"
   },
   "dependencies": {
+    "@google/genai": "^2.10.0",
+    "lucide-react": "^1.23.0",
     "mysql": "^2.18.1",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
