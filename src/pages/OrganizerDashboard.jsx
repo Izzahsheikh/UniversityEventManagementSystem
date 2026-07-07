@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import Chatbot from '../components/Chatbot'
 import Sidebar from '../components/Sidebar'
 import {
   apiGetMyEvents, apiCreateEvent, apiUpdateEvent,
@@ -397,6 +398,7 @@ export default function OrganizerDashboard() {
           )}
         </div>
       </div>
+      <Chatbot />
     </div>
   )
 }

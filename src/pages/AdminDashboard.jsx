@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import Chatbot from '../components/Chatbot';
 import Sidebar from '../components/Sidebar'
 import {
   apiGetUsers, apiDeleteUser, apiGetEvents, apiGetStats,
@@ -381,6 +382,7 @@ export default function AdminDashboard() {
           )}
         </div>
       </div>
+      <Chatbot />
     </div>
   )
 }
