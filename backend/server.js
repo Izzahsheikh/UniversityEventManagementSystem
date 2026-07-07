@@ -1,7 +1,9 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const authRoutes = require('./routes/authRoutes');
 const eventRoutes = require('./routes/eventRoutes');
+const aiRoutes = require('./routes/aiRoutes');
 const db = require('./config/database');
 
 const app = express();
@@ -14,6 +16,7 @@ app.use(express.json());
 // Main Route Declarations
 app.use('/api', authRoutes);
 app.use('/api', eventRoutes);
+app.use('/api', aiRoutes);
 
 // ── ADMIN METRICS SUMMARY ENDPOINT ──
 app.get('/api/admin/stats', async (req, res) => {
