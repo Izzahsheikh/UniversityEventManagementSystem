@@ -4,7 +4,7 @@ import Signup from './Signup.jsx'
 import StudentDashboard from './pages/StudentDashboard.jsx'
 import OrganizerDashboard from './pages/OrganizerDashboard.jsx'
 import AdminDashboard from './pages/AdminDashboard.jsx'
-import TeacherDashboard from './pages/TeacherDashboard.jsx'
+
 import ChatbotWidget from './components/ChatbotWidget.jsx'
 import './App.css'
 
