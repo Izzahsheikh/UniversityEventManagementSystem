@@ -15,6 +15,7 @@ router.post('/events', async (req, res) => {
                 category VARCHAR(100) NOT NULL,
                 venue VARCHAR(255) NOT NULL,
                 capacity INT NULL,
+                
                 description TEXT NOT NULL,
                 status ENUM('pending', 'approved', 'rejected') NOT NULL DEFAULT 'pending',
                 createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
@@ -74,22 +75,26 @@ router.get('/events/mine', async (req, res) => {
     }
 });
 
-// ── ADMIN APPROVE/REJECT EVENT (Kept dynamic path at the bottom) ──
-router.patch('/events/:id/:action', async (req, res) => {
+// (Kept dynamic path at the bottom) ──
+// ── APPROVE EVENT ──
+router.patch('/events/:id/approve', async (req, res) => {
     try {
-        const { id, action } = req.params;
-        const status = action === 'approve' ? 'approved' : 'rejected';
-
-        const [result] = await db.execute("UPDATE Events SET status = ? WHERE id = ?", [status, id]);
-
-        if (result.affectedRows === 0) {
-            return res.status(404).json({ message: 'Event not found' });
-        }
-
-        res.status(200).json({ message: `Event ${status} successfully!` });
+        const [result] = await db.execute("UPDATE Events SET status = 'approved' WHERE id = ?", [req.params.id]);
+        if (result.affectedRows === 0) return res.status(404).json({ message: 'Event not found' });
+        res.status(200).json({ message: 'Event approved successfully!' });
     } catch (error) {
-        console.error("Update Event Status Failure:", error);
-        res.status(500).json({ message: 'Server error updating event status' });
+        res.status(500).json({ message: 'Server error approving event' });
+    }
+});
+
+// ── REJECT EVENT ──
+router.patch('/events/:id/reject', async (req, res) => {
+    try {
+        const [result] = await db.execute("UPDATE Events SET status = 'rejected' WHERE id = ?", [req.params.id]);
+        if (result.affectedRows === 0) return res.status(404).json({ message: 'Event not found' });
+        res.status(200).json({ message: 'Event rejected successfully!' });
+    } catch (error) {
+        res.status(500).json({ message: 'Server error rejecting event' });
     }
 });
 
