@@ -1,6 +1,6 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
-import Login from './Login.jsx'
-import Signup from './Signup.jsx'
+import Login from './pages/auth/Login.jsx'
+import Signup from './pages/auth/Signup.jsx'
 import StudentDashboard from './pages/StudentDashboard.jsx'
 import OrganizerDashboard from './pages/OrganizerDashboard.jsx'
 import AdminDashboard from './pages/AdminDashboard.jsx'

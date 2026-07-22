@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { MessageSquare, X, Send, Loader2, Bot } from 'lucide-react'
-import { apiSendChatMessage } from '../api'
+import { apiSendChatMessage } from '../services/chatApi.js'
 import './ChatbotWidget.css'
 
 // Fixed position for the widget (no longer draggable)

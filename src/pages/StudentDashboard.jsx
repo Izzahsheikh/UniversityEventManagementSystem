@@ -1,10 +1,10 @@
 import { useState, useEffect, useRef } from 'react'
 import ChatbotWidget from '../components/ChatbotWidget';
 import Sidebar from '../components/Sidebar'
-import {
-  apiGetEvents, apiRegister, apiCancelRegistration,
-  apiMyRegistrations, apiSubmitFeedback, apiMyFeedback, apiUpdateProfile
-} from '../api'
+import { apiGetEvents } from '../services/eventApi.js'
+import { apiRegister, apiCancelRegistration, apiMyRegistrations } from '../services/registrationApi.js'
+import { apiSubmitFeedback, apiMyFeedback } from '../services/feedbackApi.js'
+import { apiUpdateProfile } from '../services/authApi.js'
 import '../App.css'
 
 const TABS = ['Overview', 'Browse Events', 'My Registrations', 'Feedback', 'Profile']

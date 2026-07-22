@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react'
 import ChatbotWidget from '../components/ChatbotWidget';
 import Sidebar from '../components/Sidebar'
-import {
-  apiGetMyEvents, apiCreateEvent, apiUpdateEvent,
-  apiDeleteEvent, apiEventRegistrations, apiGetFeedback
-} from '../api'
+import { apiGetMyEvents, apiCreateEvent, apiUpdateEvent, apiDeleteEvent } from '../services/eventApi.js'
+import { apiEventRegistrations } from '../services/registrationApi.js'
+import { apiGetFeedback } from '../services/feedbackApi.js'
 import '../App.css'
 
 const TABS = ['Overview', 'My Events', 'Create Event', 'Registrations', 'Feedback', 'Profile']
