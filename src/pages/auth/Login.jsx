@@ -6,7 +6,6 @@ import "../../App.css";                 // Changed from '../App.css'
 const roles = [
   { value: 'student',   icon: '🎓', label: 'Student',   desc: 'Browse & register for university events' },
   { value: 'organizer', icon: '📋', label: 'Organizer', desc: 'Create & manage events for your club/dept' },
-  { value: 'admin',     icon: '⚙️', label: 'Admin',     desc: 'Full system control, users & analytics' },
 ]
 
 export default function Login() {

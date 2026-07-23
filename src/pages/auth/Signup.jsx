@@ -57,7 +57,6 @@ export default function Signup() {
                 <div className='auth-role-card__desc'>
                   {r.value === 'student'   && 'Browse, register & give feedback on events'}
                   {r.value === 'organizer' && 'Create and manage events for the university'}
-                  {r.value === 'admin'     && 'Oversee all users, events & platform analytics'}
                 </div>
               </div>
             </div>
