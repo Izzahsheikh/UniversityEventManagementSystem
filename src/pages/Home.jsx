@@ -99,6 +99,38 @@ function Counter({ target, suffix = "" }) {
   return <span ref={ref}>{count}{suffix}</span>;
 }
 
+// ── Brand Mark (pure code, no image asset) ──────────────────────────────────
+function Logo({ className = "" }) {
+  return (
+    <svg viewBox="0 0 200 200" className={className} aria-hidden="true">
+      <defs>
+        <linearGradient id="tamasha-bar" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="#4C3FD9" />
+          <stop offset="50%" stopColor="#C026D3" />
+          <stop offset="100%" stopColor="#FF7A00" />
+        </linearGradient>
+        <linearGradient id="tamasha-stem" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stopColor="#4C3FD9" />
+          <stop offset="100%" stopColor="#6C63FF" />
+        </linearGradient>
+        <linearGradient id="tamasha-leaf" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#00C2A8" />
+          <stop offset="100%" stopColor="#0D9488" />
+        </linearGradient>
+      </defs>
+      {/* top bar of the T */}
+      <rect x="12" y="10" width="176" height="44" rx="22" fill="url(#tamasha-bar)" />
+      {/* stem of the T */}
+      <rect x="77" y="40" width="46" height="128" rx="20" fill="url(#tamasha-stem)" />
+      {/* leaf accent */}
+      <path
+        d="M120,145 C148,132 165,102 172,80 C158,104 136,124 116,158 C116,158 117,151 120,145 Z"
+        fill="url(#tamasha-leaf)"
+      />
+    </svg>
+  );
+}
+
 // ── Navbar ──────────────────────────────────────────────────────────────────
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -117,12 +149,13 @@ function Navbar() {
       <div className="navbar__inner">
 
         {/* Logo */}
-        <div className="navbar__logo">
-          <div className="navbar__logo-box">
-            <span className="navbar__logo-letters">EM</span>
+        <Link to="/" className="navbar__logo">
+          <Logo className="navbar__logo-img" />
+          <div className="navbar__logo-text-group">
+            <span className="navbar__logo-name">TAMASHA</span>
+            <span className="navbar__logo-slogan">INNOVATE • CONNECT • GROW</span>
           </div>
-          <span className="navbar__logo-name">Event Management</span>
-        </div>
+        </Link>
 
         {/* Desktop Links */}
         <div className="navbar__links">
@@ -199,29 +232,23 @@ function HeroSection() {
       <div className="hero__grid-bg" />
       <div className="hero__glow" />
 
-      {/* Eyebrow */}
+      {/* Eyebrow Slogan */}
       <div className={`hero__eyebrow ${subtitleVisible ? "hero__eyebrow--visible" : "hero__eyebrow--hidden"}`}>
         <span className="hero__eyebrow-line" />
-        <span className="hero__eyebrow-text">UNIVERSITY EVENT PLATFORM</span>
+        <span className="hero__eyebrow-text">INNOVATE • CONNECT • GROW</span>
         <span className="hero__eyebrow-line" />
       </div>
 
       {/* Animated Title */}
       <div className="hero__title-wrap">
         <h1 className="hero__title-line">
-          <AnimatedTitle text="EVENT" delay={100} />
-        </h1>
-        <h1 className="hero__title-line">
-          <AnimatedTitle text="MANAGEMENT" delay={500} />
-        </h1>
-        <h1 className="hero__title-line">
-          <AnimatedTitle text="SYSTEM" delay={950} />
+          <AnimatedTitle text="TAMASHA" delay={100} />
         </h1>
       </div>
 
       {/* Subtitle */}
       <p className={`hero__subtitle ${subtitleVisible ? "hero__subtitle--visible" : "hero__subtitle--hidden"}`}>
-        One platform for students and organizers to discover, create, and manage university events — seamlessly.
+        The modern university event platform for students and organizers to discover, innovate, and connect seamlessly.
       </p>
 
       {/* CTA Buttons */}
@@ -407,7 +434,6 @@ function FeaturesStrip() {
       title: "Secure by Default",
       desc: "JWT authentication, encrypted passwords, and role-based access control built in.",
     },
-
     {
       icon: "💬",
       title: "Feedback System",
@@ -450,10 +476,10 @@ function CTABanner() {
       >
         <p className="cta-banner__eyebrow">JOIN TODAY</p>
         <h2 className="cta-banner__heading">
-          Your University.<br />Your Events.
+          Your Campus.<br />Your Events.
         </h2>
         <p className="cta-banner__sub">
-          Join thousands of students already using the platform to stay connected, participate in events, and shape university culture.
+          Join thousands of students using TAMASHA to stay connected, innovate, and shape university culture.
         </p>
         <div className="cta-banner__buttons">
           <Link to="/signup" className="btn-dark">CREATE ACCOUNT →</Link>
@@ -476,13 +502,14 @@ function Footer() {
           {/* Brand */}
           <div>
             <div className="footer__brand-logo">
-              <div className="navbar__logo-box">
-                <span className="navbar__logo-letters">EM</span>
+              <Logo className="footer__logo-img" />
+              <div className="navbar__logo-text-group">
+                <span className="footer__logo-name">TAMASHA</span>
+                <span className="footer__logo-slogan">INNOVATE • CONNECT • GROW</span>
               </div>
-              <span className="navbar__logo-name">Event Management</span>
             </div>
             <p className="footer__brand-desc">
-              The all-in-one event management platform for universities and colleges.
+              The premier event management platform to innovate, connect, and grow campus communities.
             </p>
           </div>
 
@@ -507,7 +534,7 @@ function Footer() {
         </div>
 
         <div className="footer__bottom">
-          <p>©{date.getFullYear()} University Event Management System. All rights reserved.</p>
+          <p>©{date.getFullYear()} TAMASHA. All rights reserved.</p>
         </div>
       </div>
     </footer>
