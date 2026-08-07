@@ -6,7 +6,7 @@ import "../../App.css";                // Changed from '../App.css'
 const roles = [
   { value: 'student',   icon: '🎓', label: 'Student' },
   { value: 'organizer', icon: '📋', label: 'Organizer' },
-  { value: 'admin',     icon: '⚙️', label: 'Admin' },
+
 ]
 
 export default function Signup() {
