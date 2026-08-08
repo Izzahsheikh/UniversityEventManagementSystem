@@ -3,8 +3,7 @@
 <div align="center">
   <img src="public/tamasha-logo.png" alt="Tamasha Logo" width="120" height="auto" />
   <h1>TAMASHA</h1>
-  <p><strong>INNOVATE • CONNECT • GROW</strong></p>
-</div>
+  </div>
 
 > **INNOVATE • CONNECT • GROW**  
 > The modern university event platform for students and organizers to discover, innovate, and connect seamlessly.
