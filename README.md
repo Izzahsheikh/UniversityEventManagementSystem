@@ -73,11 +73,6 @@ This system is engineered to be **generic and multi-deployable**. Any university
 
 ---
 
-## 📝 License
-
-This project is built for internship purposes. © 2026 **TAMASHA**. All rights reserved.
-
-
 
 ## ⚙️ Quick Start & Installation
 
@@ -93,5 +88,11 @@ npm install
 
 # Start the development server
 npm run dev
+
+```
+
+## 📝 License
+
+This project is built for internship purposes. © 2026 **TAMASHA**. All rights reserved.
 
 
