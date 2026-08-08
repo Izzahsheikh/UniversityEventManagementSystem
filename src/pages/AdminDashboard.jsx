@@ -98,7 +98,7 @@ export default function AdminDashboard() {
       <div className='main'>
         <div className='topbar'>
           <div>
-            <div className='topbar__eyebrow'>University Event Management System</div>
+            <div className='topbar__eyebrow'>Tamasha</div>
             <div className='topbar__title'>{active}</div>
           </div>
           <div className='topbar__badge'>
