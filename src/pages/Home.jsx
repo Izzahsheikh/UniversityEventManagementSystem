@@ -99,37 +99,6 @@ function Counter({ target, suffix = "" }) {
   return <span ref={ref}>{count}{suffix}</span>;
 }
 
-// ── Brand Mark (pure code, no image asset) ──────────────────────────────────
-function Logo({ className = "" }) {
-  return (
-    <svg viewBox="0 0 200 200" className={className} aria-hidden="true">
-      <defs>
-        <linearGradient id="tamasha-bar" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="#4C3FD9" />
-          <stop offset="50%" stopColor="#C026D3" />
-          <stop offset="100%" stopColor="#FF7A00" />
-        </linearGradient>
-        <linearGradient id="tamasha-stem" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stopColor="#4C3FD9" />
-          <stop offset="100%" stopColor="#6C63FF" />
-        </linearGradient>
-        <linearGradient id="tamasha-leaf" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#00C2A8" />
-          <stop offset="100%" stopColor="#0D9488" />
-        </linearGradient>
-      </defs>
-      {/* top bar of the T */}
-      <rect x="12" y="10" width="176" height="44" rx="22" fill="url(#tamasha-bar)" />
-      {/* stem of the T */}
-      <rect x="77" y="40" width="46" height="128" rx="20" fill="url(#tamasha-stem)" />
-      {/* leaf accent */}
-      <path
-        d="M120,145 C148,132 165,102 172,80 C158,104 136,124 116,158 C116,158 117,151 120,145 Z"
-        fill="url(#tamasha-leaf)"
-      />
-    </svg>
-  );
-}
 
 // ── Navbar ──────────────────────────────────────────────────────────────────
 function Navbar() {
@@ -150,7 +119,7 @@ function Navbar() {
 
         {/* Logo */}
         <Link to="/" className="navbar__logo">
-          <Logo className="navbar__logo-img" />
+         <img src="/tamasha-logo.png" className="navbar__logo-img" alt="Tamasha Logo" />
           <div className="navbar__logo-text-group">
             <span className="navbar__logo-name">TAMASHA</span>
             <span className="navbar__logo-slogan">INNOVATE • CONNECT • GROW</span>
@@ -502,7 +471,8 @@ function Footer() {
           {/* Brand */}
           <div>
             <div className="footer__brand-logo">
-              <Logo className="footer__logo-img" />
+            <img src="/tamasha-logo.png" className="footer__logo-img" alt="Tamasha Logo" />
+
               <div className="navbar__logo-text-group">
                 <span className="footer__logo-name">TAMASHA</span>
                 <span className="footer__logo-slogan">INNOVATE • CONNECT • GROW</span>
