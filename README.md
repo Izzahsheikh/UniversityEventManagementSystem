@@ -73,3 +73,23 @@ npm install
 
 # Start the development server
 npm run dev
+
+
+## 🌐 Deployment
+
+This system is engineered to be **generic and multi-deployable**. Any university can deploy an isolated instance with custom branding, localized databases, and dedicated administrative control.
+
+---
+
+## 👨‍💻 Development Team
+
+- **Abdul Kareem** — Frontend Developer
+- **Izza Sheikh** — Backend Developer
+- **Ali Ahmed Riaz** — AI Integration
+
+---
+
+## 📝 License
+
+This project is built for internship purposes. © 2026 **TAMASHA**. All rights reserved.
+
