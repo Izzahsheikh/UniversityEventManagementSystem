@@ -1,4 +1,4 @@
-# TAMASHA — University Event Management Platform
+# TAMASHA 
 
 <div align="center">
   <img src="public/tamasha-logo.png" alt="Tamasha Logo" width="120" height="auto" />
