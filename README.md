@@ -59,22 +59,6 @@
 
 ---
 
-## ⚙️ Quick Start & Installation
-
-```bash
-# Clone the repository
-git clone [https://github.com/IzaahSheikh/university-event-management-system.git](https://github.com/IzaahSheikh/university-event-management-system.git)
-
-# Navigate into the project folder
-cd university-event-management-system
-
-# Install dependencies for client and server
-npm install
-
-# Start the development server
-npm run dev
-
-
 ## 🌐 Deployment
 
 This system is engineered to be **generic and multi-deployable**. Any university can deploy an isolated instance with custom branding, localized databases, and dedicated administrative control.
@@ -92,4 +76,22 @@ This system is engineered to be **generic and multi-deployable**. Any university
 ## 📝 License
 
 This project is built for internship purposes. © 2026 **TAMASHA**. All rights reserved.
+
+
+
+## ⚙️ Quick Start & Installation
+
+```bash
+# Clone the repository
+git clone [https://github.com/IzaahSheikh/university-event-management-system.git](https://github.com/IzaahSheikh/university-event-management-system.git)
+
+# Navigate into the project folder
+cd university-event-management-system
+
+# Install dependencies for client and server
+npm install
+
+# Start the development server
+npm run dev
+
 
