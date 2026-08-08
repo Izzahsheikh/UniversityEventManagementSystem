@@ -1,0 +1,59 @@
+/* ── Google Fonts ─────────────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+
+/* ── CSS Variables — TAMASHA Design System ────────────────────────────────── */
+:root {
+  --primary:        #6C63FF;
+  --primary-dark:   #4C3FD9;
+  --secondary:      #FF7A00;
+  --accent:         #00C2A8;
+  --background:     #F8FAFC;
+  --white:          #FFFFFF;
+  --text:           #1E1B4B;
+  --text-secondary: #64748B;
+  --border:         #E2E8F0;
+  --success:        #22C55E;
+  --warning:        #F59E0B;
+  --error:          #EF4444;
+  --gradient-btn:   linear-gradient(90deg, #6C63FF 0%, #FF7A00 100%);
+  --shadow-sm:      0 2px 8px rgba(108, 99, 255, 0.1);
+  --shadow-md:      0 8px 32px rgba(108, 99, 255, 0.15);
+  --shadow-lg:      0 20px 60px rgba(108, 99, 255, 0.2);
+}
+
+/* ── Reset & Base ─────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--background);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── Keyframes ────────────────────────────────────────────────────────────── */
+@keyframes scrollLine {
+  0%   { transform: translateY(-100%); }
+  100% { transform: translateY(300%); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-14px); }
+}
+
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}

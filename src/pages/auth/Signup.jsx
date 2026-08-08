@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { apiSignup } from "../../services/authApi.js"// Changed from '../api'
-import "../../App.css";                // Changed from '../App.css'
+import "../../styles/Auth.css";                // Changed from '../App.css'
 
 const roles = [
   { value: 'student',   icon: '🎓', label: 'Student' },

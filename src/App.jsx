@@ -1,13 +1,13 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
 import Login from './pages/auth/Login.jsx'
 import Signup from './pages/auth/Signup.jsx'
-import Home from './pages/Home.jsx'
-import StudentDashboard from './pages/StudentDashboard.jsx'
-import OrganizerDashboard from './pages/OrganizerDashboard.jsx'
-import AdminDashboard from './pages/AdminDashboard.jsx'
+import Home from './pages/Home/Home.jsx'
+import StudentDashboard from './pages/Student/StudentDashboard.jsx'
+import OrganizerDashboard from './pages/Organizer/OrganizerDashboard.jsx'
+import AdminDashboard from './pages/Admin/AdminDashboard.jsx'
 
 import ChatbotWidget from './components/ChatbotWidget.jsx'
-import './App.css'
+import './styles/index.css'
 
 const ProtectedRoute = ({ children, role }) => {
   const user = JSON.parse(localStorage.getItem('loggedInUser') || 'null')
@@ -35,7 +35,7 @@ export default function App() {
         } />
         <Route path='*' element={<Navigate to='/login' replace />} />
       </Routes>
-      
+
       <ChatbotWidget />
     </>
   )

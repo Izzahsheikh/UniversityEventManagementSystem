@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react'
-import ChatbotWidget from '../components/ChatbotWidget';
-import Sidebar from '../components/Sidebar'
-import { apiGetMyEvents, apiCreateEvent, apiUpdateEvent, apiDeleteEvent } from '../services/eventApi.js'
-import { apiEventRegistrations } from '../services/registrationApi.js'
-import { apiGetFeedback } from '../services/feedbackApi.js'
-import '../App.css'
+import ChatbotWidget from '../../components/ChatbotWidget.jsx';
+import Sidebar from '../../components/Sidebar.jsx'
+import { apiGetMyEvents, apiCreateEvent, apiUpdateEvent, apiDeleteEvent } from '../../services/eventApi.js'
+import { apiEventRegistrations } from '../../services/registrationApi.js'
+import { apiGetFeedback } from '../../services/feedbackApi.js'
+import "../../styles/Dashboard.css";
 
 const TABS = ['Overview', 'My Events', 'Create Event', 'Registrations', 'Feedback', 'Profile']
 const CATEGORIES = ['Academic', 'Sports', 'Cultural', 'Workshop', 'Seminar', 'Social', 'Technical', 'Other']

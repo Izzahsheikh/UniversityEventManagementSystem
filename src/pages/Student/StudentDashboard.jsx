@@ -1,11 +1,11 @@
 import { useState, useEffect, useRef } from 'react'
-import ChatbotWidget from '../components/ChatbotWidget';
-import Sidebar from '../components/Sidebar'
-import { apiGetEvents } from '../services/eventApi.js'
-import { apiRegister, apiCancelRegistration, apiMyRegistrations } from '../services/registrationApi.js'
-import { apiSubmitFeedback, apiMyFeedback } from '../services/feedbackApi.js'
-import { apiUpdateProfile } from '../services/authApi.js'
-import '../App.css'
+import ChatbotWidget from '../../components/ChatbotWidget';
+import Sidebar from '../../components/Sidebar'
+import { apiGetEvents } from '../../services/eventApi.js'
+import { apiRegister, apiCancelRegistration, apiMyRegistrations } from '../../services/registrationApi.js'
+import { apiSubmitFeedback, apiMyFeedback } from '../../services/feedbackApi.js'
+import { apiUpdateProfile } from '../../services/authApi.js'
+import "../../styles/Dashboard.css";
 
 const TABS = ['Overview', 'Browse Events', 'My Registrations', 'Feedback', 'Profile']
 

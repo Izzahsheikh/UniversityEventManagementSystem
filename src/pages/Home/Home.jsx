@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import "./Home.css";
+import "../../styles/index.css";
 
 // ── Intersection Observer Hook ──────────────────────────────────────────────
 function useInView(threshold = 0.15) {

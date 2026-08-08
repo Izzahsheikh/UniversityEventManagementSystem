@@ -1,23 +1,23 @@
 import { useState, useEffect } from 'react'
-import ChatbotWidget from '../components/ChatbotWidget';
-import Sidebar from '../components/Sidebar'
-import { apiGetUsers, apiDeleteUser, apiGetStats } from '../services/adminApi.js'
-import { apiGetEvents, apiDeleteEvent, apiApproveEvent, apiRejectEvent } from '../services/eventApi.js'
-import { apiGetFeedback } from '../services/feedbackApi.js'
-import '../App.css'
+import ChatbotWidget from '../../components/ChatbotWidget.jsx'
+import Sidebar from '../../components/Sidebar.jsx'
+import { apiGetUsers, apiDeleteUser, apiGetStats } from '../../services/adminApi.js'
+import { apiGetEvents, apiDeleteEvent, apiApproveEvent, apiRejectEvent } from '../../services/eventApi.js'
+import { apiGetFeedback } from '../../services/feedbackApi.js'
+import "../../styles/Dashboard.css";
 
 const TABS = ['Overview', 'Users', 'Events', 'Approvals', 'Reports', 'Profile']
 
 export default function AdminDashboard() {
-  const [active, setActive]     = useState('Overview')
-  const [users, setUsers]       = useState([])
-  const [events, setEvents]     = useState([])
-  const [feedbacks, setFbs]     = useState([])
-  const [stats, setStats]       = useState({})
-  const [userFilter, setUF]     = useState('all')
+  const [active, setActive] = useState('Overview')
+  const [users, setUsers] = useState([])
+  const [events, setEvents] = useState([])
+  const [feedbacks, setFbs] = useState([])
+  const [stats, setStats] = useState({})
+  const [userFilter, setUF] = useState('all')
   const [evSearch, setEvSearch] = useState('')
-  const [alert, setAlert]       = useState(null)
-  const [loading, setLoading]   = useState(true)
+  const [alert, setAlert] = useState(null)
+  const [loading, setLoading] = useState(true)
 
   const u = JSON.parse(localStorage.getItem('loggedInUser') || '{}')
 
@@ -121,8 +121,8 @@ export default function AdminDashboard() {
                   ['Total Users', users.length, 'Registered accounts', 'blue'],
                   ['Total Events', events.length, 'On platform', 'accent'],
                   ['Pending Approvals', pendingEvents.length, 'Need review', 'amber'],
-                  ['Students', users.filter(u=>u.role==='student').length, 'Accounts', 'green'],
-                  ['Organizers', users.filter(u=>u.role==='organizer').length, 'Accounts', 'purple'],
+                  ['Students', users.filter(u => u.role === 'student').length, 'Accounts', 'green'],
+                  ['Organizers', users.filter(u => u.role === 'organizer').length, 'Accounts', 'purple'],
                   ['Feedback', feedbacks.length, 'Reviews submitted', 'amber'],
                 ].map(([label, val, sub, color]) => (
                   <div key={label} className={`card stat-card card--accent-${color}`}>
@@ -287,17 +287,17 @@ export default function AdminDashboard() {
                 <div className='card' style={{ padding: '1.25rem' }}>
                   <div className='section-title' style={{ marginBottom: '1rem' }}>User Breakdown</div>
                   {[
-                    ['Students', users.filter(u=>u.role==='student').length, 'blue'],
-                    ['Organizers', users.filter(u=>u.role==='organizer').length, 'purple'],
-                    ['Admins', users.filter(u=>u.role==='admin').length, 'red'],
+                    ['Students', users.filter(u => u.role === 'student').length, 'blue'],
+                    ['Organizers', users.filter(u => u.role === 'organizer').length, 'purple'],
+                    ['Admins', users.filter(u => u.role === 'admin').length, 'red'],
                   ].map(([role, count, color]) => (
                     <div key={role} style={{ marginBottom: 14 }}>
                       <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 5 }}>
                         <span style={{ fontSize: 12, color: 'var(--text-2)' }}>{role}</span>
-                        <span style={{ fontSize: 12, fontFamily: 'Space Grotesk', fontWeight: 700, color: 'var(--text)' }}>{count} <span style={{ color: 'var(--text-4)', fontWeight: 400 }}>({users.length ? Math.round(count/users.length*100) : 0}%)</span></span>
+                        <span style={{ fontSize: 12, fontFamily: 'Space Grotesk', fontWeight: 700, color: 'var(--text)' }}>{count} <span style={{ color: 'var(--text-4)', fontWeight: 400 }}>({users.length ? Math.round(count / users.length * 100) : 0}%)</span></span>
                       </div>
                       <div className='progress'>
-                        <div className='progress__bar' style={{ width: `${users.length ? count/users.length*100 : 0}%`, background: `var(--${color})` }} />
+                        <div className='progress__bar' style={{ width: `${users.length ? count / users.length * 100 : 0}%`, background: `var(--${color})` }} />
                       </div>
                     </div>
                   ))}
@@ -305,7 +305,7 @@ export default function AdminDashboard() {
 
                 <div className='card' style={{ padding: '1.25rem' }}>
                   <div className='section-title' style={{ marginBottom: '1rem' }}>Events by Category</div>
-                  {['Academic','Sports','Cultural','Workshop','Seminar','Social','Technical','Other'].map(cat => {
+                  {['Academic', 'Sports', 'Cultural', 'Workshop', 'Seminar', 'Social', 'Technical', 'Other'].map(cat => {
                     const count = events.filter(e => e.category === cat).length
                     if (!count) return null
                     return (
@@ -315,7 +315,7 @@ export default function AdminDashboard() {
                           <span style={{ fontSize: 12, fontFamily: 'Space Grotesk', fontWeight: 700, color: 'var(--text)' }}>{count}</span>
                         </div>
                         <div className='progress'>
-                          <div className='progress__bar' style={{ width: `${events.length ? count/events.length*100 : 0}%` }} />
+                          <div className='progress__bar' style={{ width: `${events.length ? count / events.length * 100 : 0}%` }} />
                         </div>
                       </div>
                     )
@@ -338,7 +338,7 @@ export default function AdminDashboard() {
                         </span>
                         <span>
                           <span className='stars'>{'★'.repeat(f.rating)}</span>
-                          <span className='stars-empty'>{'★'.repeat(5-f.rating)}</span>
+                          <span className='stars-empty'>{'★'.repeat(5 - f.rating)}</span>
                         </span>
                       </div>
                       <p style={{ fontSize: 12, color: 'var(--text-3)', lineHeight: 1.6 }}>{f.review}</p>
